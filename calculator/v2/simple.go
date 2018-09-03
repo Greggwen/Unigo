@@ -15,8 +15,6 @@ func main() {
 	inputReader := bufio.NewReader(os.Stdin)
 	fmt.Println("Please input the first number:")
 	firstInput, err := inputReader.ReadString('\n')
-	//firstInput, err := inputReader.ReadRune()
-	//fmt.Println(strconv.ParseFloat(firstInput, 64))
 	if err != nil {
 		os.Exit(1)
 	}
@@ -24,8 +22,6 @@ func main() {
 
 	// 得到第一个参数，并转换成float64类型
 	firstInput1, err := strconv.ParseFloat(firstInput, 64)
-
-	//var supportOperator  = [4]string{"+", "-", "*", "/"}
 
 	for {
 		// 获取操作符【+-*/】
