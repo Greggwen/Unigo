@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 type MyLinkedList struct {
 	val int
 	next *MyLinkedList
@@ -32,20 +34,17 @@ func (this *MyLinkedList) Get(index int) int {
 /** Add a node of value val before the first element of the linked list. After the insertion, the new node will be the first node of the linked list. */
 func (this *MyLinkedList) AddAtHead(val int)  {
 	firstNode := &MyLinkedList{val:val}
-	firstNode.next = this
+	this.next = firstNode
 }
 
 
 /** Append a node of value val to the last element of the linked list. */
 func (this *MyLinkedList) AddAtTail(val int)  {
 	point := this.next
-
 	lastNode := &MyLinkedList{val: val, next: nil}
-
-	for point != nil {
+	for point.next != nil {
 		point = point.next
 	}
-
 	point.next = lastNode
 }
 
@@ -55,15 +54,18 @@ func (this *MyLinkedList) AddAtIndex(index int, val int)  {
 	// index == 0 则直接调用 AddAtIndex 添加到首节点
 	if index == 0 {
 		this.AddAtHead(val)
+		return
 	}
 	point := this.next
 
-	for i := 1; i < index; i ++ {
+	for i := 0; i < index; i ++ {
 		point = point.next
 	}
+	//fmt.Println(point.next.val)
 	// 如果point.next == nil， 则直接调用 AddAtTail 添加到尾节点
 	if point.next == nil {
 		this.AddAtTail(val)
+		return
 	}
 
 	s := &MyLinkedList{val: val}
@@ -77,8 +79,15 @@ func (this *MyLinkedList) DeleteAtIndex(index int)  {
 	point := this.next
 
 	j := 1
-	for (head != nil && j < i) {
-		point.
+	for (point != nil && j < index) {
+		point = point.next
+		j ++
+	}
+
+	if point == nil ||  j > index {
+
+	} else {
+		point.next = point.next.next
 	}
 
 }
@@ -93,3 +102,17 @@ func (this *MyLinkedList) DeleteAtIndex(index int)  {
  * obj.AddAtIndex(index,val);
  * obj.DeleteAtIndex(index);
  */
+
+func main() {
+	obj := Constructor()
+	obj.AddAtHead(1)
+	obj.AddAtTail(10)
+	obj.AddAtIndex(1, 4)
+	obj.DeleteAtIndex(2);
+
+	first := obj.next
+	for first != nil {
+		fmt.Println(first.val)
+		first = first.next
+	}
+}
