@@ -4,15 +4,15 @@ import "fmt"
 
 type Data interface{}
 
-type Node struct {
+type Nodes struct {
 	data Data
-	next *Node
+	next *Nodes
 }
 
 type LinkList struct {
 	size uint64
-	head *Node
-	tail *Node
+	head *Nodes
+	tail *Nodes
 }
 
 // 初始化链表
@@ -22,7 +22,7 @@ func (list *LinkList) Init() {
 	(*list).tail = nil
 }
 
-func (list *LinkList) Append(node *Node) bool {
+func (list *LinkList) Append(node *Nodes) bool {
 
 	if node == nil {
 		return false
@@ -45,7 +45,7 @@ func (list *LinkList) Append(node *Node) bool {
 }
 
 func main() {
-	n := &Node{
+	n := &Nodes{
 		data: 2222,
 	}
 
@@ -54,7 +54,7 @@ func main() {
 
 	list.Append(n)
 
-	n1 := &Node{
+	n1 := &Nodes{
 		data: 4444,
 	}
 	list.Append(n1)
