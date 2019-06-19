@@ -2,11 +2,11 @@ package main
 
 import "fmt"
 
-func get_notification (user string) chan string {
+func get_notification(user string) chan string {
 	notification := make(chan string)
 
 	go func() {
-		notification <- fmt.Sprintf("Hi %s, welcome to here", user);
+		notification <- fmt.Sprintf("Hi %s, welcome to here", user)
 	}()
 
 	return notification

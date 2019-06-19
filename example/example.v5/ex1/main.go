@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func sum(s []int, c chan int)  {
+func sum(s []int, c chan int) {
 	sum := 0
 	for _, v := range s {
 		sum += v
@@ -22,5 +22,3 @@ func main() {
 
 	fmt.Println(x, y, z)
 }
-
-
