@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func fibonaccis(c, quit chan int)  {
+func fibonaccis(c, quit chan int) {
 	x, y := 0, 1
 	for {
 		select {
@@ -20,7 +20,7 @@ func main() {
 	quit := make(chan int)
 
 	go func() {
-		for i := 0; i < 10; i ++ {
+		for i := 0; i < 10; i++ {
 			fmt.Println(<-c)
 		}
 		quit <- 0

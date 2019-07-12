@@ -6,7 +6,7 @@ import (
 )
 
 func write(ch chan int) {
-	for i := 0; i < 5; i ++ {
+	for i := 0; i < 5; i++ {
 		ch <- i
 		fmt.Println("Successfully worte", i, "to ch")
 	}

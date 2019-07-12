@@ -1,10 +1,10 @@
 package main
 
 import (
-	"fmt"
-	"sync"
 	"bytes"
+	"fmt"
 	"os"
+	"sync"
 )
 
 // Channel 可用于同步内存的访问，更适用的场景是goroutine 之前的传递信息
@@ -29,12 +29,11 @@ func t4() {
 		defer close(intStream)
 		defer fmt.Fprintln(&stdoutBuff, "Producer Done")
 
-		for i := 0; i < 5; i ++ {
+		for i := 0; i < 5; i++ {
 			fmt.Fprintf(&stdoutBuff, "Sending %d\n", i)
 			intStream <- i
 		}
 	}()
-
 
 	for integer := range intStream {
 		fmt.Fprintf(&stdoutBuff, "Reciver %d\n", integer)
@@ -44,11 +43,11 @@ func t4() {
 func t3() {
 	begin := make(chan interface{})
 	var wg sync.WaitGroup
-	for i := 0; i < 5; i ++ {
+	for i := 0; i < 5; i++ {
 		wg.Add(1)
 		go func(i int) {
 			defer wg.Done()
-			<- begin
+			<-begin
 			fmt.Printf("%v has begun\n", i)
 		}(i)
 	}
@@ -59,11 +58,11 @@ func t3() {
 
 }
 
-func t2()  {
+func t2() {
 	stringStream := make(chan int)
 	go func() {
 		defer close(stringStream)
-		for i := 1; i <= 5; i ++ {
+		for i := 1; i <= 5; i++ {
 			stringStream <- i
 		}
 	}()
@@ -73,12 +72,11 @@ func t2()  {
 	}
 }
 
-func t1 ()  {
+func t1() {
 	// Channel 声明
 	//var dataStream chan interface{}  // 1
 
 	//dataStream := make(chan interface{})  // 2
-
 
 	stringStream := make(chan string)
 	go func() {
@@ -86,7 +84,6 @@ func t1 ()  {
 	}()
 
 	//fmt.Println(<- stringStream)
-	solution, err := <- stringStream
+	solution, err := <-stringStream
 	fmt.Printf("%v, %v", solution, err)
 }
-

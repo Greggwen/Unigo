@@ -8,13 +8,12 @@ import "fmt"
 //	Error() string
 //}
 
-
 type DivideError struct {
 	dividee int
 	divider int
 }
 
-func (de *DivideError) Error () string {
+func (de *DivideError) Error() string {
 	strFormat := `
 	Cannot proceed, the divider is zero.
 	dividee: %d
@@ -23,7 +22,7 @@ func (de *DivideError) Error () string {
 	return fmt.Sprintf(strFormat, de.dividee)
 }
 
-func Divide(varDividee int, varDivider int) (result int, errorMsg string)  {
+func Divide(varDividee int, varDivider int) (result int, errorMsg string) {
 	if varDivider == 0 {
 		dData := DivideError{
 			varDividee,

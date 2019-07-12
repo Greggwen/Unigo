@@ -16,7 +16,7 @@ func New(name, scientificName, category string) Cats {
 	}
 }
 
-func (cat *Cats) SetName (name string) {
+func (cat *Cats) SetName(name string) {
 	cat.name = name
 }
 
@@ -24,15 +24,15 @@ func (cat Cats) SetNameOfCopy(name string) {
 	cat.name = name
 }
 
-func (cat Cats) Name () string {
+func (cat Cats) Name() string {
 	return cat.name
 }
 
-func (cat Cats) ScientifiName () string {
+func (cat Cats) ScientifiName() string {
 	return cat.scientificName
 }
 
-func (cat Cats) Category () string {
+func (cat Cats) Category() string {
 	return cat.category
 }
 

@@ -7,8 +7,6 @@ import (
 	"time"
 )
 
-
-
 func Connect(user string, password string, host string, port int) (*sftp.Client, error) {
 	var (
 		auth         []ssh.AuthMethod
@@ -24,9 +22,9 @@ func Connect(user string, password string, host string, port int) (*sftp.Client,
 	auth = append(auth, ssh.Password(password))
 
 	clientConfig = &ssh.ClientConfig{
-		User: user,
-		Auth: auth,
-		Timeout: 30 * time.Second,
+		User:            user,
+		Auth:            auth,
+		Timeout:         30 * time.Second,
 		HostKeyCallback: ssh.InsecureIgnoreHostKey(),
 	}
 

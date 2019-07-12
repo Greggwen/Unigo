@@ -1,22 +1,21 @@
 package ex4
 
 import (
-	"net"
-	"fmt"
-	"strings"
 	"errors"
-	"os"
+	"fmt"
 	"io"
+	"net"
+	"os"
 	"strconv"
+	"strings"
 )
-
 
 type Ftp struct {
 	con net.Conn
-	ip string
+	ip  string
 }
 
-func NewFtp(ip string) (*Ftp, error)  {
+func NewFtp(ip string) (*Ftp, error) {
 	buf := make([]byte, 1024)
 	con, err := net.Dial("tcp", ip)
 	if err != nil {
@@ -48,7 +47,7 @@ func (self *Ftp) Login(user, passwd string) error {
 	return nil
 }
 
-func (self *Ftp) PutPasv (Pathname string) error {
+func (self *Ftp) PutPasv(Pathname string) error {
 	con, err := self.connections("STOR", Pathname)
 	if err != nil {
 		return err
@@ -71,7 +70,7 @@ func (self *Ftp) PutPasv (Pathname string) error {
 	return nil
 }
 
-func (self *Ftp) GetFile (Pathname string) error {
+func (self *Ftp) GetFile(Pathname string) error {
 	con, err := self.connections("RETR", Pathname)
 	if err != nil {
 		return err
@@ -93,7 +92,7 @@ func (self *Ftp) GetFile (Pathname string) error {
 	return nil
 }
 
-func (self *Ftp) connections (status, Pathname string) (net.Conn, error) {
+func (self *Ftp) connections(status, Pathname string) (net.Conn, error) {
 	buf := make([]byte, 1024)
 	self.con.Write([]byte("PASV \r\n"))
 	n, err := self.con.Read(buf)
@@ -101,7 +100,7 @@ func (self *Ftp) connections (status, Pathname string) (net.Conn, error) {
 		return nil, err
 	}
 
-	if s := string(buf[:n]);  !strings.Contains(s, "227 Entering Passive Mode") {
+	if s := string(buf[:n]); !strings.Contains(s, "227 Entering Passive Mode") {
 		return nil, errors.New(s)
 	}
 
@@ -126,13 +125,13 @@ func (self *Ftp) connections (status, Pathname string) (net.Conn, error) {
 func getport(by []byte) int {
 	s := string(by)
 	list := strings.Split(s, ",")
-	n1, err := strconv.Atoi(list[len(list) - 2])
+	n1, err := strconv.Atoi(list[len(list)-2])
 	if err != nil {
 		return 0
 	}
-	n2, err := strconv.Atoi(list[len(list) - 1])
+	n2, err := strconv.Atoi(list[len(list)-1])
 	if err != nil {
 		return 0
 	}
-	return n1 * 256 + n2
+	return n1*256 + n2
 }

@@ -1,10 +1,10 @@
 package main
 
 import (
-	"strings"
 	"bufio"
 	"fmt"
 	"os"
+	"strings"
 )
 
 func main() {
@@ -22,7 +22,7 @@ func main() {
 	// count the words
 	count := 0
 	for scanner.Scan() {
-		count ++
+		count++
 	}
 	if err := scanner.Err(); err != nil {
 		fmt.Fprintln(os.Stderr, "reading input:", err)

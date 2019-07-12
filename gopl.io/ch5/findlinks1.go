@@ -1,9 +1,9 @@
 package main
 
 import (
-	"os"
-	"golang.org/x/net/html"
 	"fmt"
+	"golang.org/x/net/html"
+	"os"
 )
 
 func visit(links []string, n *html.Node) []string {
@@ -19,7 +19,7 @@ func visit(links []string, n *html.Node) []string {
 		links = visit(links, c)
 	}
 
-	return links;
+	return links
 }
 
 func main() {

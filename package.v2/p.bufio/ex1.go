@@ -2,9 +2,9 @@ package main
 
 import (
 	"bufio"
-	"strings"
 	"fmt"
 	"os"
+	"strings"
 )
 
 func main() {

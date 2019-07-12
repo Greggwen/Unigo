@@ -3,12 +3,12 @@ package main
 import "fmt"
 
 // 示例4：通道路线实例
-func ping (pings chan <- string, msg string) {
-	pings<-msg
+func ping(pings chan<- string, msg string) {
+	pings <- msg
 }
 
-func pong(pings<-chan string, pongs chan <- string)  {
-	msg := <- pings
+func pong(pings <-chan string, pongs chan<- string) {
+	msg := <-pings
 	pongs <- msg
 }
 
@@ -16,12 +16,11 @@ func main() {
 	pings := make(chan string, 1)
 	pongs := make(chan string, 1)
 
-	ping (pings, "passed message")
-	pong (pings, pongs)
+	ping(pings, "passed message")
+	pong(pings, pongs)
 
 	fmt.Println(<-pongs)
 }
-
 
 // 示例3：通道同步实例
 //func worker(done chan bool) {
@@ -39,9 +38,6 @@ func main() {
 //	//<-done
 //	fmt.Println(<-done)
 //}
-
-
-
 
 // 示例2 通道缓冲实例
 //func main() {

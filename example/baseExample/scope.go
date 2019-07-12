@@ -41,12 +41,12 @@ func main() {
 	var c int = 0
 
 	fmt.Printf("main()函数中的a=%d\n", a)
-	c = sum (a, b)
+	c = sum(a, b)
 
 	fmt.Printf("main()函数 c= %d\n", c)
 }
 
-func sum (a, b int) int {
+func sum(a, b int) int {
 	fmt.Printf("sum()函数中的a = %d\n", a)
 	fmt.Printf("sum()函数中的b = %d\n", b)
 	return a + b

@@ -1,9 +1,9 @@
 package main
 
 import (
-	"net"
-	"fmt"
 	"bufio"
+	"fmt"
+	"net"
 )
 
 func main() {
@@ -17,7 +17,6 @@ func main() {
 
 	fmt.Println(status, err)
 
-
 	user, password := "ftpzy", "X1THc^enf$#o2m5L"
 
 	conn.Write([]byte("USER " + user))
@@ -30,8 +29,4 @@ func main() {
 
 	conn.Close()
 
-
-
 }
-
-

@@ -1,15 +1,14 @@
 package main
 
 import (
+	"Unigo/gosftp/drivers"
 	"flag"
-	"os"
 	"fmt"
 	"github.com/pkg/sftp"
-	"Unigo/gosftp/drivers"
 	"log"
+	"os"
 	"path"
 )
-
 
 var (
 	USER = flag.String("user", "xululu", "ssh username")
@@ -27,7 +26,7 @@ func main() {
 	fmt.Println(*USER, *HOST, *PORT, *PASS, *SIZE)
 
 	var (
-		err  error
+		err        error
 		sftpClient *sftp.Client
 	)
 
@@ -63,6 +62,5 @@ func main() {
 	}
 
 	fmt.Println("copy file to remote server finished!")
-
 
 }

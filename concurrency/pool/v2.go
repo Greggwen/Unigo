@@ -1,13 +1,13 @@
 package main
 
 import (
-	"time"
-	"sync"
-	"net"
-	"log"
 	"fmt"
-	"testing"
 	"io/ioutil"
+	"log"
+	"net"
+	"sync"
+	"testing"
+	"time"
 )
 
 func init() {
@@ -15,11 +15,10 @@ func init() {
 	daemonStarted.Wait()
 }
 
-
-func connectToService () interface{} {
+func connectToService() interface{} {
 	time.Sleep(1 * time.Second)
 
-	return struct {}{}
+	return struct{}{}
 }
 
 func warmServiceConnCache() *sync.Pool {
@@ -27,14 +26,14 @@ func warmServiceConnCache() *sync.Pool {
 		New: connectToService,
 	}
 
-	for i := 0; i < 10; i ++ {
+	for i := 0; i < 10; i++ {
 		p.Put(p.New())
 	}
 
 	return p
 }
 
-func startNetworkDaemon () *sync.WaitGroup {
+func startNetworkDaemon() *sync.WaitGroup {
 	var wg sync.WaitGroup
 	wg.Add(1)
 

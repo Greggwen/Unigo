@@ -1,6 +1,5 @@
 package calculator
 
-
 type Calculator interface {
 	add(x, y float64) float64
 	subtraction(x, y float64) float64

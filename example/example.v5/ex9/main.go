@@ -17,8 +17,8 @@ func (T *TestStruct) setA(i int) {
 func NewStructV(value int, s string) TestStruct {
 	T := TestStruct{a: value, b: s}
 	p := &T
-	fmt.Println(p, "__4__")  // &{a:1, b : hello}
-	fmt.Println(T, "__5__")  // {a:1, b : hello}
+	fmt.Println(p, "__4__") // &{a:1, b : hello}
+	fmt.Println(T, "__5__") // {a:1, b : hello}
 	p.setA(2)
 	fmt.Println(p, "__6__")
 	fmt.Println(T, "__7__")

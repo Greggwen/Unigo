@@ -1,14 +1,14 @@
 package github
 
 import (
+	"encoding/json"
+	"fmt"
+	"net/http"
 	"net/url"
 	"strings"
-	"net/http"
-	"fmt"
-	"encoding/json"
 )
 
-func SearchIssues(terms []string) (*IssuesSearchResult, error)  {
+func SearchIssues(terms []string) (*IssuesSearchResult, error) {
 	q := url.QueryEscape(strings.Join(terms, " "))
 	resp, err := http.Get(IssueURL + "?q=" + q)
 	defer resp.Body.Close()

@@ -1,12 +1,12 @@
 package main
 
 import (
+	"fmt"
 	"runtime"
 	"sync"
-	"fmt"
 )
 
-func main()  {
+func main() {
 
 	memConsumed := func() uint64 {
 		runtime.GC()
@@ -19,14 +19,14 @@ func main()  {
 	var c <-chan interface{}
 
 	var wg sync.WaitGroup
-	noop := func() {wg.Done(); <-c}
+	noop := func() { wg.Done(); <-c }
 
 	const numGoroutines = 1e4
 	wg.Add(numGoroutines)
 
 	before := memConsumed()
 
-	for i := numGoroutines; i > 0; i -- {
+	for i := numGoroutines; i > 0; i-- {
 		go noop()
 	}
 

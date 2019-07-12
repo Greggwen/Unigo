@@ -1,12 +1,12 @@
 package main
 
 import (
-	"sync"
 	"fmt"
+	"sync"
 	"time"
 )
 
-func process (i int, wg *sync.WaitGroup)  {
+func process(i int, wg *sync.WaitGroup) {
 	fmt.Println("Start goroutine ", i)
 	time.Sleep(2 * time.Second)
 	fmt.Printf("Goroutine %d ended \n", i)
@@ -16,7 +16,7 @@ func process (i int, wg *sync.WaitGroup)  {
 func main() {
 	no := 3
 	var wg sync.WaitGroup
-	for i := 0; i < no; i ++ {
+	for i := 0; i < no; i++ {
 		wg.Add(1)
 		go process(i, &wg)
 	}

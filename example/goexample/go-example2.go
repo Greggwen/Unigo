@@ -6,7 +6,7 @@ type Dog struct {
 	name string
 }
 
-func (d *Dog) SetName (name string) {
+func (d *Dog) SetName(name string) {
 	d.name = name
 }
 
@@ -28,6 +28,5 @@ func main() {
 	dog.SetName("Little Bit")
 
 	fmt.Println(dog)
-
 
 }

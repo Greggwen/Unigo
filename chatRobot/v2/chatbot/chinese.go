@@ -1,8 +1,8 @@
 package chatbot
 
 import (
-	"strings"
 	"fmt"
+	"strings"
 )
 
 type simpleCN struct {
@@ -23,7 +23,7 @@ func (robot *simpleCN) Name() string {
 	return robot.name
 }
 
-func (robot *simpleCN) Begin() (string, error)  {
+func (robot *simpleCN) Begin() (string, error) {
 	return "请输入你的名字：", nil
 }
 

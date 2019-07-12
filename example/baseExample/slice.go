@@ -12,20 +12,20 @@ import "fmt"
 // 切片初始化： s := []int{1, 2, 3}
 
 //func main() {
-	//var arr = [5]int{1, 2, 4, 5, 6}
-	//
-	//slice1 := arr[:]
-	//fmt.Println(slice1) // [1 2 4 5 6]
-	//
-	//slice2 := arr[:4]
-	//fmt.Println(slice2) // [1 2 4 5]
-	//
-	//slice3 := arr[1:]
-	//fmt.Println(slice3) // [2 4 5 6]
-	//
-	//// len() 与 cap()
-	//var numbers = make([]int , 3)
-	//printSlice(numbers)
+//var arr = [5]int{1, 2, 4, 5, 6}
+//
+//slice1 := arr[:]
+//fmt.Println(slice1) // [1 2 4 5 6]
+//
+//slice2 := arr[:4]
+//fmt.Println(slice2) // [1 2 4 5]
+//
+//slice3 := arr[1:]
+//fmt.Println(slice3) // [2 4 5 6]
+//
+//// len() 与 cap()
+//var numbers = make([]int , 3)
+//printSlice(numbers)
 
 //	var numbers []int
 //	printSlice(numbers)
@@ -38,7 +38,6 @@ import "fmt"
 func printSlice(x []int) {
 	fmt.Printf("len=%d cap=%d slice=%v\n", len(x), cap(x), x)
 }
-
 
 // append() 和 copy() 函数
 
@@ -78,7 +77,7 @@ func main() {
 	// 具体参考： https://www.zhihu.com/question/27161493
 
 	// 创建切片numbers1 是之前切片的两倍容量
-	numbers1 := make([]int, len(numbers), (cap(numbers)) * 2)
+	numbers1 := make([]int, len(numbers), (cap(numbers))*2)
 	printSlice(numbers1)
 
 	copy(numbers1, numbers)

@@ -1,25 +1,25 @@
 package ex5
 
 import (
-	"net"
 	"fmt"
+	"net"
 	"strconv"
 	"strings"
 )
 
 type FTP struct {
-	host string
-	port int
-	user string
-	passwd string
-	pasv int
-	cmd string
-	Code int
+	host    string
+	port    int
+	user    string
+	passwd  string
+	pasv    int
+	cmd     string
+	Code    int
 	Message string
-	Debug bool
-	stream []byte
-	conn net.Conn
-	Error error
+	Debug   bool
+	stream  []byte
+	conn    net.Conn
+	Error   error
 }
 
 func (ftp *FTP) debugInfo(s string) {
@@ -130,38 +130,6 @@ func newRequest(host string, port int, b []byte) string {
 	n, _ := conn.Read(ret)
 	return string(ret[:n])
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //import (
 //	"net"

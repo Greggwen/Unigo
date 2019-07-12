@@ -1,7 +1,6 @@
 package calculator
 
-
 type simpleCN struct {
-	name string
+	name       string
 	calculator Calculator
 }

@@ -1,9 +1,9 @@
 package main
 
 import (
+	"fmt"
 	"reflect"
 	"strconv"
-	"fmt"
 )
 
 // 反射类型为reflect包提供，它定义了两个重要的类型： Type 和 Value。 Type表示Go语言的一个类型，它是一个有很多方法的接口，这些方法可以用来识别类型以及透视类型的组成部分
@@ -34,7 +34,7 @@ func formatAtom(v reflect.Value) string {
 
 type Person struct {
 	Name string
-	Age int
+	Age  int
 }
 
 func main() {

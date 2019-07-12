@@ -4,14 +4,15 @@ import (
 	"fmt"
 )
 
-func loop()  {
-	for i := 0; i < 10; i ++ {
+func loop() {
+	for i := 0; i < 10; i++ {
 		fmt.Printf("%d ", i)
 	}
 }
 
 var ch chan int = make(chan int)
-func foo()  {
+
+func foo() {
 	fmt.Println(111)
 	ch <- 10
 }
@@ -29,8 +30,7 @@ func main() {
 	//
 	//fmt.Println(<-messages)
 
-
 	go foo()
 
-	<- ch
+	<-ch
 }

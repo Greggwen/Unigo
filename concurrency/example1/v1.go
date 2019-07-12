@@ -1,18 +1,18 @@
 package main
 
 import (
-	"sync"
 	"fmt"
+	"sync"
 )
 
-func main()  {
-	
+func main() {
+
 	test2()
 	//test1()
 
 }
 
-func test2()  {
+func test2() {
 	var wg sync.WaitGroup
 
 	// 打印 getter getter getter
@@ -37,7 +37,7 @@ func test2()  {
 	wg.Wait()
 }
 
-func test1()  {
+func test1() {
 	var wg sync.WaitGroup
 	salutation := "hello"
 	wg.Add(1)

@@ -29,7 +29,7 @@ func main() {
 	_ = GetIntChan(getIntChan)
 }
 
-func SendIn (ch chan<- int)  {
+func SendIn(ch chan<- int) {
 	ch <- rand.Intn(1000)
 }
 
@@ -37,10 +37,10 @@ type Notifier interface {
 	SendInt(ch chan<- int)
 }
 
-func getIntChan () <-chan int  {
+func getIntChan() <-chan int {
 	num := 5
 	ch := make(chan int, num)
-	for i := 0; i < num; i ++ {
+	for i := 0; i < num; i++ {
 		ch <- i
 	}
 	close(ch)

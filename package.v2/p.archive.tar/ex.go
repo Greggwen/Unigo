@@ -1,11 +1,11 @@
 package main
 
 import (
-	"bytes"
 	"archive/tar"
-	"log"
-	"io"
+	"bytes"
 	"fmt"
+	"io"
+	"log"
 	"os"
 )
 
@@ -14,7 +14,7 @@ func main() {
 	var buf bytes.Buffer
 	tw := tar.NewWriter(&buf)
 
-	var files = []struct{
+	var files = []struct {
 		Name, Body string
 	}{
 		{"readme.txt", "This archive contains some text files."},
@@ -24,9 +24,9 @@ func main() {
 
 	for _, file := range files {
 		hdr := &tar.Header{
-			Name:file.Name,
+			Name: file.Name,
 			Mode: 0600,
-			Size:int64(len(file.Body)),
+			Size: int64(len(file.Body)),
 		}
 
 		if err := tw.WriteHeader(hdr); err != nil {

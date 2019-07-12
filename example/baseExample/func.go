@@ -16,8 +16,7 @@ func main() {
 	fmt.Printf("交换后，b的值是:%d\n", b)
 }
 
-
-func swap (x *int, y *int) {
+func swap(x *int, y *int) {
 	var temp int
 	temp = *x
 	*x = *y

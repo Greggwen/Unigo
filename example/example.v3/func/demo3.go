@@ -20,7 +20,7 @@ func main() {
 	fmt.Printf("The original slice: %v\n", slice1) // [x i z]
 
 	// 示例3
-	complexArray1 := [3][]string {
+	complexArray1 := [3][]string{
 		[]string{"d", "e", "f"},
 		[]string{"g", "h", "i"},
 		[]string{"J", "k", "l"},
@@ -31,7 +31,7 @@ func main() {
 	fmt.Printf("The original complex array: %v\n", complexArray1) // [[d e f] [g s i] [J k l]]
 }
 
-func modifyArray (arr [3]string) [3]string {
+func modifyArray(arr [3]string) [3]string {
 	arr[1] = "x"
 	return arr
 }
@@ -46,4 +46,3 @@ func modifyComplexArray(arr [3][]string) [3][]string {
 	arr[2] = []string{"o", "p", "q"}
 	return arr
 }
-

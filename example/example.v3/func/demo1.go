@@ -9,7 +9,7 @@ type Printer func(content string) (n int, err error)
 // 2. 把其他的函数作为结果返回
 
 // 可以看作函数 PrintToStd 是 Printer 的一个实现
-func PrintToStd (content string) (bytesNum int, err error)  {
+func PrintToStd(content string) (bytesNum int, err error) {
 
 	return fmt.Println(content)
 }

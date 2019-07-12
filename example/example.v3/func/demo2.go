@@ -8,12 +8,12 @@ import (
 type operate func(x, y int) int
 
 // 加
-func Sum (x, y int) int {
+func Sum(x, y int) int {
 	return x + y
 }
 
 // 减
-func Reduce (x, y int) int {
+func Reduce(x, y int) int {
 	return x - y
 }
 
@@ -23,11 +23,11 @@ func Pursue(x, y int) int {
 }
 
 // 除
-func Division (x, y int) int {
+func Division(x, y int) int {
 	return x / y
 }
 
-func calculate (x int, y int, op operate) (int, error) {
+func calculate(x int, y int, op operate) (int, error) {
 	if op == nil {
 		return 0, errors.New("invalid operation")
 	}

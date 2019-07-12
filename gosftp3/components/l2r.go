@@ -1,22 +1,22 @@
 package components
 
 import (
-	"sync"
-	"os"
-	"io/ioutil"
 	"fmt"
+	"io/ioutil"
+	"os"
 	"path/filepath"
 	"strings"
+	"sync"
 )
 
 // l2r: Local to remote 缩写
 
 type fi struct {
-	fn string  // file name
-	fs int64   // file size
+	fn string // file name
+	fs int64  // file size
 }
 
-func LocalToRemote (localBasePath, remoteBasePath string)  {
+func LocalToRemote(localBasePath, remoteBasePath string) {
 	// 遍历文件树
 	fileInfo := make(chan fi)
 
@@ -39,7 +39,7 @@ func LocalToRemote (localBasePath, remoteBasePath string)  {
 	for fii := range fileInfo {
 		nfiles++
 		nbytes += fii.fs
-		remoteFile := filepath.Dir(remoteBasePath + "/" + fii.fn[len(localBasePath) + 1:])
+		remoteFile := filepath.Dir(remoteBasePath + "/" + fii.fn[len(localBasePath)+1:])
 		//remoteFile := filepath.Dir(fii.fn[len(localBasePath) + 1:])
 		//fmt.Println(remoteFile)
 		parent := filepath.Dir(remoteFile)
@@ -52,7 +52,7 @@ func LocalToRemote (localBasePath, remoteBasePath string)  {
 	}
 }
 
-func walkDir (dir string, n *sync.WaitGroup, fileInfo chan<- fi)  {
+func walkDir(dir string, n *sync.WaitGroup, fileInfo chan<- fi) {
 	defer n.Done()
 	for _, entry := range dirents(dir) {
 		if entry.IsDir() {
@@ -72,7 +72,8 @@ func walkDir (dir string, n *sync.WaitGroup, fileInfo chan<- fi)  {
 }
 
 var sema = make(chan struct{}, 20)
-func dirents (dir string) []os.FileInfo {
+
+func dirents(dir string) []os.FileInfo {
 	sema <- struct{}{}
 	defer func() { <-sema }()
 	entries, err := ioutil.ReadDir(dir)
@@ -83,7 +84,7 @@ func dirents (dir string) []os.FileInfo {
 	return entries
 }
 
-func contaniner (fact string) bool {
+func contaniner(fact string) bool {
 	ignores := []string{
 		".git",
 		"vendor",

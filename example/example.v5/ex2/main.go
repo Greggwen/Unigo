@@ -1,8 +1,8 @@
 package main
 
 import (
-	"time"
 	"fmt"
+	"time"
 )
 
 func main() {
@@ -13,7 +13,7 @@ func main() {
 	fmt.Printf("\rFibonacci(%d) = %d\n", n, fibN)
 }
 
-func spinner(delay time.Duration)  {
+func spinner(delay time.Duration) {
 	for {
 		for _, r := range `-\|/` {
 			fmt.Printf("\r%c", r)
@@ -26,5 +26,5 @@ func fib(x int) int {
 	if x < 2 {
 		return x
 	}
-	return fib(x - 1) + fib(x - 2)
+	return fib(x-1) + fib(x-2)
 }

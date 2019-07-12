@@ -9,12 +9,12 @@ func main() {
 	close(c2)
 
 	var vCount1, vCount2 int
-	for i := 0; i < 1000; i ++ {
+	for i := 0; i < 1000; i++ {
 		select {
 		case <-c1:
-			vCount1 ++
+			vCount1++
 		case <-c2:
-			vCount2 ++
+			vCount2++
 		}
 	}
 

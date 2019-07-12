@@ -16,11 +16,11 @@ func (dog *Dog) SetName(name string) {
 	dog.name = name
 }
 
-func (dog Dog) Name () string {
+func (dog Dog) Name() string {
 	return dog.name
 }
 
-func (dog Dog) Category () string {
+func (dog Dog) Category() string {
 	return "dog"
 }
 

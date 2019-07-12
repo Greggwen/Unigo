@@ -1,8 +1,8 @@
 package main
 
 import (
-	"sync"
 	"fmt"
+	"sync"
 )
 
 func main() {
@@ -26,7 +26,7 @@ func main() {
 	var wg sync.WaitGroup
 	wg.Add(numWorkers)
 
-	for i := numWorkers; i > 0; i -- {
+	for i := numWorkers; i > 0; i-- {
 		go func() {
 			defer wg.Done()
 			mem := calcPool.Get().(*[]byte)
@@ -34,14 +34,8 @@ func main() {
 		}()
 	}
 
-
 	wg.Wait()
 	fmt.Printf("%d calculators were created.", numCalcsCreated)
-
-
-
-
-
 
 	// Example 1:
 	//myPool := sync.Pool{

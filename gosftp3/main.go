@@ -1,14 +1,14 @@
 package main
 
 import (
-	"flag"
 	"Unigo/gosftp3/components"
+	"flag"
 	"github.com/pkg/sftp"
 	"log"
 )
 
 var (
-	localBasePath string
+	localBasePath  string
 	remoteBasePath string
 )
 
@@ -20,13 +20,14 @@ var (
 	PASS = flag.String("pass", "mosh123", "ssh password")
 	SIZE = flag.Int("s", 1<<15, "set max packet size")
 )
+
 func init() {
 	flag.Parse()
 }
 
 func main() {
 	var (
-		err  error
+		err        error
 		sftpClient *sftp.Client
 	)
 
@@ -38,6 +39,5 @@ func main() {
 	defer sftpClient.Close()
 
 	components.LocalToRemote("/Users/simple.xull/DevOps/Code/local/golang/src/LeetCode-Golang", "/home/xululu/test/leetCode")
-
 
 }

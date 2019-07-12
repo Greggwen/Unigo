@@ -30,7 +30,6 @@ func (list *LinkList) Append(node *Nodes) bool {
 
 	(*node).next = nil
 
-
 	if (*list).size == 0 {
 		(*list).head = node
 	} else {
@@ -65,7 +64,7 @@ func main() {
 
 	var size uint64 = list.size
 	var j uint64 = 0
-	for j = 0; j < size - 1; j ++ {
+	for j = 0; j < size-1; j++ {
 		item = (*item).next
 		fmt.Println(item.data)
 	}

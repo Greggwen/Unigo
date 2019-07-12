@@ -6,7 +6,6 @@ import (
 )
 
 type IndexController struct {
-
 }
 
 func (c *IndexController) Index(w http.ResponseWriter, req *http.Request) {

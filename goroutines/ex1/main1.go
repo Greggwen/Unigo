@@ -31,7 +31,6 @@ package main
 //	fmt.Println("This line code wont run") //在此行执行之前Go就会报死锁
 //}
 
-
 //var ch1 chan int = make(chan int)
 //var ch2 chan int = make(chan int)
 //

@@ -1,8 +1,8 @@
 package main
 
 import (
-	"sync"
 	"fmt"
+	"sync"
 )
 
 func main() {
@@ -13,7 +13,7 @@ func main() {
 		lock.Lock()
 		defer lock.Unlock()
 
-		count ++
+		count++
 		fmt.Printf("Incrementing: %d\n", count)
 	}
 
@@ -21,13 +21,13 @@ func main() {
 		lock.Lock()
 		defer lock.Unlock()
 
-		count --
+		count--
 		fmt.Printf("Decrementing: %d\n", count)
 	}
 
 	var arithmetic sync.WaitGroup
 
-	for i := 0; i <= 5; i ++ {
+	for i := 0; i <= 5; i++ {
 		arithmetic.Add(1)
 		go func() {
 			defer arithmetic.Done()
@@ -35,7 +35,7 @@ func main() {
 		}()
 	}
 
-	for i := 0; i <= 5; i ++ {
+	for i := 0; i <= 5; i++ {
 		arithmetic.Add(1)
 		go func() {
 			defer arithmetic.Done()

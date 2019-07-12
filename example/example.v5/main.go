@@ -2,8 +2,8 @@ package main
 
 import (
 	"Unigo/example/example.v5/ex4"
-	"log"
 	"fmt"
+	"log"
 )
 
 func main() {
@@ -19,6 +19,5 @@ func main() {
 	//ftp.PutPasv("./")
 
 	//ftp.GetFile("~/t.log")
-
 
 }

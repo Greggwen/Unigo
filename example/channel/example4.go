@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func digits (number int, dchnl chan int)  {
+func digits(number int, dchnl chan int) {
 
 	for number != 0 {
 		digit := number % 10
@@ -12,7 +12,7 @@ func digits (number int, dchnl chan int)  {
 	close(dchnl)
 }
 
-func calcSquares (number int, squareop chan int)  {
+func calcSquares(number int, squareop chan int) {
 	sum := 0
 	dch := make(chan int)
 	go digits(number, dch)
@@ -23,7 +23,7 @@ func calcSquares (number int, squareop chan int)  {
 	squareop <- sum
 }
 
-func calcCubes (number int, cubeop chan int)  {
+func calcCubes(number int, cubeop chan int) {
 	sum := 0
 	dch := make(chan int)
 	go digits(number, dch)

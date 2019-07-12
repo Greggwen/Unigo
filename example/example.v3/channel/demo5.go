@@ -1,14 +1,14 @@
 package main
 
 import (
-	"math/rand"
 	"fmt"
+	"math/rand"
 	"time"
 )
 
-func example1()  {
+func example1() {
 	// 准备好几个通道
-	intChannel := [3]chan int {
+	intChannel := [3]chan int{
 		make(chan int, 1),
 		make(chan int, 1),
 		make(chan int, 1),
@@ -17,7 +17,7 @@ func example1()  {
 	// 随机选择一个通道，并向它发送元素值
 	index := rand.Intn(3)
 	fmt.Printf("The index: %d\n", index)
-	intChannel[index]<- index
+	intChannel[index] <- index
 
 	// 哪一个通道中有可取的元素值，哪个对应的分支就会被执行
 	select {

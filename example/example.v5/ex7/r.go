@@ -1,21 +1,18 @@
 package main
 
 import (
-	"net/http"
-	"io"
 	"Unigo/example/example.v5/ex7/application"
+	"io"
+	"net/http"
 )
 
-func handler(w http.ResponseWriter, r *http.Request)  {
+func handler(w http.ResponseWriter, r *http.Request) {
 	io.WriteString(w, "Hello World!\n")
 }
-
-
 
 func main() {
 
 	application.NewRoutes()
-
 
 	//mux := http.NewServeMux()
 	//mux.HandleFunc("/", handler)

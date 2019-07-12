@@ -6,9 +6,9 @@ import (
 )
 
 type User struct {
-	Id int
+	Id   int
 	Name string
-	Age int
+	Age  int
 }
 
 func (u User) Hello(name string) {
@@ -17,9 +17,9 @@ func (u User) Hello(name string) {
 
 func main() {
 	u := User{
-		Id: 1,
+		Id:   1,
 		Name: "Rollay",
-		Age: 20,
+		Age:  20,
 	}
 
 	v := reflect.ValueOf(u)

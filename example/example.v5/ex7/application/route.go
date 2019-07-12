@@ -5,8 +5,8 @@ import (
 )
 
 type Route struct {
-	Name string
-	Method string
+	Name    string
+	Method  string
 	Pattern string
 	Handler http.HandlerFunc
 }
@@ -28,15 +28,15 @@ var routes = Routes{
 	},
 }
 
-func Index(w http.ResponseWriter, req *http.Request)  {
+func Index(w http.ResponseWriter, req *http.Request) {
 
 }
 
-func IndexHello(w http.ResponseWriter, req *http.Request)  {
+func IndexHello(w http.ResponseWriter, req *http.Request) {
 
 }
 
-func NewRoutes ()  {
+func NewRoutes() {
 	mux := http.NewServeMux()
 
 	for _, route := range routes {
