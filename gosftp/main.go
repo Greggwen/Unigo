@@ -1,13 +1,14 @@
 package main
 
 import (
-	"Unigo/gosftp/drivers"
+	gotools "Unigo/gosftp/drivers"
 	"flag"
 	"fmt"
-	"github.com/pkg/sftp"
 	"log"
 	"os"
 	"path"
+
+	"github.com/pkg/sftp"
 )
 
 var (
