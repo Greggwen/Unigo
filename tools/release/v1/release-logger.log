@@ -1,0 +1,11 @@
+Info:2019/07/18 17:02:49 ===================================  START RELEASE ==========================
+Info:2019/07/18 17:02:49 The Project named js not exists!
+Info:2019/07/18 17:02:49 ===================================  END RELEASE ==========================
+Info:2019/07/18 17:30:15 ===================================  START RELEASE ==========================
+Info:2019/07/18 17:30:15 total 16
+drwxr-xr-x  4 simple.xull  staff   128 Jul 18 17:29 .
+drwxr-xr-x  3 simple.xull  staff    96 Jul 18 16:53 ..
+-rw-r--r--  1 simple.xull  staff  2910 Jul 18 17:29 main.go
+-rw-r--r--  1 simple.xull  staff   365 Jul 18 17:30 release-logger.log
+
+Info:2019/07/18 17:30:15 ===================================  END RELEASE ==========================

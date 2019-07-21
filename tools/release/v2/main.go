@@ -48,10 +48,6 @@ func main() {
 
 func copyToRemote(sftpClient *sftp.Client, localFilePath string) {
 
-
-	sftpClient.MkdirAll()
-
-
 	dstFile, err := sftpClient.Create("/home/xululu/test/leetCode/tt/twoSum.go")
 	if err != nil {
 		log.Fatal(err.Error())
