@@ -1,7 +1,7 @@
 package main
 
 import (
-	"Unigo/gosftp3/components"
+	"Unigo/sftp/gosftp3/components"
 	"flag"
 	"fmt"
 	"io"

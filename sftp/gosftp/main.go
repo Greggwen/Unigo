@@ -1,7 +1,7 @@
 package main
 
 import (
-	gotools "Unigo/gosftp/drivers"
+	gotools "Unigo/sftp/gosftposftp/drivers"
 	"flag"
 	"fmt"
 	"log"
