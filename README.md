@@ -18,3 +18,4 @@
 16. https://www.kancloud.cn/mutouzhang/gocookbook/608898   Go CookBook 中文笔记
 17. https://golangbot.com/learn-golang-series/  Golang Tutorial Series（英文版本教程）
 18. https://eleme.github.io/blog/2014/goroutine-1/  Go语言并发与并行学习笔记（时间有点久，但是对概念上的理解很有帮助）
+19. https://chai2010.cn/advanced-go-programming-book/   Go语言高级编程(Advanced Go Programming)
