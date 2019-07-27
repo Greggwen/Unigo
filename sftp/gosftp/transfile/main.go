@@ -1,7 +1,7 @@
-package main
+package transfile
 
 import (
-	gotools "Unigo/sftp/gosftposftp/drivers"
+	gotools "Unigo/sftp/gosftp/drivers"
 	"flag"
 	"fmt"
 	"log"
