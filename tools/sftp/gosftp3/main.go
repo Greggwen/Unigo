@@ -1,7 +1,7 @@
 package main
 
 import (
-	"Unigo/sftp/gosftp3/components"
+	"Unigo/tools/sftps/sftp/gosftp3/components"
 	"flag"
 	"github.com/pkg/sftp"
 	"log"
