@@ -1,0 +1,4 @@
+Hello Golang!File handling is easy.
+File handling is easy.
+File handling is easy.
+File handling is easy.
