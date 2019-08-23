@@ -16,6 +16,7 @@ type fi struct {
 	fs int64  // file size
 }
 
+// LocalToRemote 本地同步至远程
 func LocalToRemote(localBasePath, remoteBasePath string) {
 	// 遍历文件树
 	fileInfo := make(chan fi)

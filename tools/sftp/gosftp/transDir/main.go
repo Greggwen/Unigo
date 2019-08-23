@@ -1,21 +1,37 @@
 package main
 
 import (
+	gotools "Unigo/tools/sftp/gosftp/drivers"
 	"flag"
-	"github.com/pkg/sftp"
-	"Unigo/tools/sftps/sftp/gosftp/drivers"
-	"log"
 	"fmt"
+	"log"
 	"os"
+
+	"github.com/pkg/sftp"
 )
 
 var (
+	// USER remote server's username
 	USER = flag.String("user", "xululu", "ssh username")
+
+	// HOST remote server's IP
 	HOST = flag.String("host", "192.168.1.200", "ssh server hostname")
+
+	// PORT remote server's ssh port
 	PORT = flag.Int("port", 22, "ssh server port")
+
+	// PASS remote server password
 	PASS = flag.String("pass", "mosh123", "ssh password")
+
+	// SIZE max packet size
 	SIZE = flag.Int("s", 1<<15, "set max packet size")
 )
+
+// File status
+type fileStat struct {
+	name  string
+	isDir bool
+}
 
 func init() {
 	flag.Parse()
@@ -33,8 +49,8 @@ func main() {
 	}
 	defer sftpClient.Close()
 
-	var localDirPath = "/Users/simple.xull/DevOps/Code/local/Julia"
-	var remoteDir = "/home/xululu/test/local/Julia"
+	var localDirPath = "/Users/simple.xull/DevOps/Code/reworkSite/swenly-note"
+	var remoteDir = "/home/xululu/test/local/swenly-note"
 
 	fileInfo, err := os.Stat(localDirPath)
 	if err != nil {
@@ -42,22 +58,20 @@ func main() {
 		os.Exit(1)
 	}
 
-	var remotePathIsExist bool = true
+	// create the remote directory if not exists
+	var remotePathIsExist = true
 	rfileInfo, err := sftpClient.Stat(remoteDir)
 	if err != nil {
 		remotePathIsExist = false
 	}
 
-
 	// TODO: 判断传输的本地文件是否为文件夹
 	if fileInfo.IsDir() {
 		// TODO: 若是文件夹， 则判断远程文件夹是否存在，不存在则创建
 		if !remotePathIsExist {
-			// TODO: 创建文件夹
-			err = sftpClient.MkdirAll(remoteDir)
-			if err != nil {
-				log.Fatal(err.Error())
-			}
+
+			transfterDir(localDirPath, remoteDir, sftpClient)
+
 		}
 
 		// TODO: 传输入文件夹内容
@@ -77,10 +91,15 @@ func main() {
 		}
 	}
 
-
-
 	fmt.Println(fileInfo.IsDir())
 
+}
 
+func transfterDir(localDirPath string, remoteDir string, sftpClient *sftp.Client) {
+	// 创建文件夹
+	err := sftpClient.MkdirAll(remoteDir)
+	if err != nil {
+		log.Fatal(err.Error())
+	}
 
 }

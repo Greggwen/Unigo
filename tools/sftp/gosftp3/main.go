@@ -1,10 +1,11 @@
 package main
 
 import (
-	"Unigo/tools/sftps/sftp/gosftp3/components"
+	"Unigo/tools/sftp/gosftp3/components"
 	"flag"
-	"github.com/pkg/sftp"
 	"log"
+
+	"github.com/pkg/sftp"
 )
 
 var (
