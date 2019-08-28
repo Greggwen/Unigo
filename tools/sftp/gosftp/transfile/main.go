@@ -1,7 +1,7 @@
-package transfile
+package main
 
 import (
-	gotools "Unigo/tools/sftps/sftp/gosftp/drivers"
+	gotools "Unigo/tools/sftp/gosftp/drivers"
 	"flag"
 	"fmt"
 	"log"
@@ -39,7 +39,7 @@ func main() {
 
 	// 用来测试的本地文件路径 和 远程机器上的文件夹
 	var localFilePath = "/Users/simple.xull/DevOps/Code/local/test.php"
-	var remoteDir = "/home/xululu/test/local/"
+	var remoteDir = "/home/xululu/test/local/test/"
 	srcFile, err := os.Open(localFilePath)
 	if err != nil {
 		log.Fatal(err)
