@@ -7,6 +7,7 @@ import (
 	"os"
 	"path/filepath"
 	"sync"
+	"time"
 )
 
 type mediumStorage struct {
@@ -17,6 +18,7 @@ type mediumStorage struct {
 func main() {
 	var localDirPath = "/Users/simple.xull/DevOps/Code/reworkSite/vue-framework-wz"
 
+	var stime = time.Now()
 	_, err := os.Stat(localDirPath)
 	if err != nil {
 		log.Fatal(err)
@@ -33,17 +35,26 @@ func main() {
 		close(medium)
 	}()
 
+	var twg sync.WaitGroup
 	var dircount, filecount int64
 	for ms := range medium {
+		twg.Add(1)
+		go printContent(ms, &twg)
 		if ms.mediumType == "file" {
 			filecount++
 		} else {
 			dircount++
 		}
-		fmt.Printf("The medium type is %s, filepath: %s\n", ms.mediumType, ms.mediumPath)
 	}
 
+	go func() {
+		twg.Wait()
+	}()
+
+	var exectime = time.Since(stime)
+
 	fmt.Printf("The total number of files is %d.\nThe total number of dir is %d\n", filecount, dircount)
+	fmt.Println("The execute time is ", exectime)
 
 }
 
@@ -80,4 +91,9 @@ func dirents(dir string) []os.FileInfo {
 	}
 
 	return entries
+}
+
+func printContent(medium mediumStorage, wg *sync.WaitGroup) {
+	defer wg.Done()
+	fmt.Printf("The medium type is %s, filepath: %s\n", medium.mediumType, medium.mediumPath)
 }
